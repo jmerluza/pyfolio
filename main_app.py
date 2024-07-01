@@ -31,29 +31,32 @@ st.set_page_config(page_title=f"{fullname}'s Portfolio", layout="centered", page
 
 linkedin_badge = f"{linkedin_js} {linkedin_html}"
 
-with st.sidebar:
-    components.html(html=linkedin_badge, height=310)
-    st.markdown(sidebar_contents)
+# with st.sidebar:
+    # components.html(html=linkedin_badge, height=310)
+#     st.markdown(sidebar_contents)
 
-top_col1, top_col2 = st.columns(spec=[0.7,0.3], vertical_alignment="center")
+top_col1, top_col2 = st.columns(spec=[0.4,0.6], vertical_alignment="top")
 with top_col1:
-    st.header(intro_header)
-    st.markdown(about_me)
+    components.html(html=linkedin_badge, height=310)
+    # st.header(intro_header)
+    
 with top_col2:
-    st_lottie(gradient_lottie, height=400)
+    st.markdown(sidebar_contents)
+    # st_lottie(gradient_lottie, height=400)
 
+st.markdown(about_me)
 
 st.header(":pushpin: Career Highlights")
 work_experience_col1, work_experience_col2 = st.columns(2)
 with work_experience_col1:
-    with st.container(border=True):
+    with st.container(border=True, height=300):
         st.markdown(f"#### *_{job_title1}_*")
         st.markdown(f"**{job_company1}**")
         st.markdown(f"**{job_timeline1}**")
         st.markdown(job_desc1)
 
 with work_experience_col2:
-    with st.container(border=True):
+    with st.container(border=True, height=300):
         st.markdown(f"#### *_{job_title2}_*")
         st.markdown(f"**{job_company2}**")
         st.markdown(f"**{job_timeline2}**")
@@ -66,7 +69,7 @@ with st.container():
 
 
 
-with st.container(border=True):
+with st.container():
     st.header(":toolbox: Skills")
     skills_col1, skills_col2, skills_col3, skills_col4 = st.columns(4)
     with skills_col1:
